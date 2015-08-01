@@ -34,7 +34,7 @@ class SubjectServiceProvider extends ServiceProvider
     public function boot()
     {
         if (!$this->app->routesAreCached()) {
-            require __DIR__ . '/routes.php';
+            require __DIR__ . '/../routes.php';
         }
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'subject');
         $this->publishes([
