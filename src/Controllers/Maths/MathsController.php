@@ -27,10 +27,8 @@
 namespace Elearn\Subject\Controllers\Maths;
 
 
-use App\Http\Controllers\Controller;
-use App\Model\User;
-use Illuminate\Http\JsonResponse;
-use Psy\Util\Json;
+use Illuminate\Routing\Controller;
+use Elearn\Model\User;
 
 class MathsController extends Controller
 {
