@@ -18,6 +18,18 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="{{ route('bug.index') }}">Bug Report</a></li>
+                    @if(Auth::check())
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ route('auth.logout') }}">Logout</a></li>
+                            </ul>
+                        </li>
+                    @else
+                        <li><a href="{{ route('auth.login') }}">Login</a></li>
+                    @endif
                 </ul>
             </div>
         </div>
