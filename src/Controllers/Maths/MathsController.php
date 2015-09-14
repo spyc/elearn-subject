@@ -39,7 +39,7 @@ class MathsController extends Controller
 
     public function about()
     {
-        $users = User::select(['user.name', 'committee.post'])
+        $users = User::select(['user.ename', 'committee.post'])
             ->join('committee', 'user.pycid', '=', 'committee.pycid')
             ->join('community', 'community.id', '=', 'committee.community')
             ->where('community.name', '=', 'Maths')
