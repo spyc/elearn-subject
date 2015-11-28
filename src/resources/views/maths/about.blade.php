@@ -14,7 +14,7 @@
             </tr>
             @foreach($committee as $user)
                 <tr>
-                    <td>{{ $user->name }}</td>
+                    <td>{{ $user->ename }}</td>
                     <td>{{ $user->post }}</td>
                 </tr>
             @endforeach
