@@ -27,6 +27,7 @@
 namespace Elearn\Subject\Controllers\Maths;
 
 
+use Elearn\Model\Community;
 use Illuminate\Routing\Controller;
 use Elearn\Model\User;
 
@@ -39,12 +40,8 @@ class MathsController extends Controller
 
     public function about()
     {
-        $users = User::select(['user.ename', 'committee.post'])
-            ->join('committee', 'user.pycid', '=', 'committee.pycid')
-            ->join('community', 'community.id', '=', 'committee.community')
-            ->where('community.name', '=', 'Maths')
-            ->get()
-        ;
+        $users = Community::getCommunityByName('Maths')
+                    ->getCommitteeWithPost();
 
         $template = ['committee' => $users];
 
