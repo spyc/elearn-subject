@@ -1,6 +1,6 @@
 <?php
 /**
- * elearn
+ * subject
  *
  * PHP version 5
  *
@@ -24,30 +24,20 @@
  * @license  http://opensource.org/licenses/GPL-3.0 GNU General Public License
  */
 
-Route::group(['prefix' => 'subject'], function ()
+namespace Elearn\Subject\Controllers\Chinese;
+
+
+use Elearn\Subject\Controllers\ResourceLink;
+use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+
+class ResourceController extends Controller
 {
-    Route::get('/', function ()
+    use ResourceLink;
+
+    public function links(Request $request)
     {
-        return view('subject::index');
-    });
-
-    Route::group(['prefix' => 'maths'], function()
-    {
-        Route::get('/', [
-            'as' => 'subject.maths.index',
-            'uses' => 'Elearn\Subject\Controllers\Maths\MathsController@index'
-        ]);
-
-        Route::get('about',[
-            'as' => 'subject.maths.about',
-            'uses' => 'Elearn\Subject\Controllers\Maths\MathsController@about'
-        ]);
-    });
-
-    Route::group(['prefix' => 'chinese'], function() {
-        Route::get('link', [
-            'as' => 'subject.chinese.link',
-            'uses' => 'Elearn\Subject\Controllers\Chinese\ResourceController@links'
-        ]);
-    });
-});
+        $request->getSession()->set('locale', 'zh');
+        return $this->linkView(0, 10, 'subject::chinese.links');
+    }
+}
