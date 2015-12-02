@@ -43,4 +43,11 @@ Route::group(['prefix' => 'subject'], function ()
             'uses' => 'Elearn\Subject\Controllers\Maths\MathsController@about'
         ]);
     });
+
+    Route::group(['prefix' => 'chinese'], function() {
+        Route::get('link', [
+            'as' => 'subject.chinese.link',
+            'uses' => 'Elearn\Subject\Controllers\Chinese\ResourceController@links'
+        ]);
+    });
 });
