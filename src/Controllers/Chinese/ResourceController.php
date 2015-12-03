@@ -26,18 +26,18 @@
 
 namespace Elearn\Subject\Controllers\Chinese;
 
-
 use Elearn\Subject\Controllers\ResourceLink;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Foundation\Application
 
 class ResourceController extends Controller
 {
     use ResourceLink;
 
-    public function links(Request $request)
+    public function links(Request $request, Application $app)
     {
-        App::setLocale('zh');
+        $app->setLocale('zh');
         return $this->linkView(1, 16, 'subject::chinese.links');
     }
 }
