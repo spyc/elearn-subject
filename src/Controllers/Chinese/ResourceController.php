@@ -37,7 +37,7 @@ class ResourceController extends Controller
 
     public function links(Request $request)
     {
-        $request->getSession()->set('locale', 'zh');
-        return $this->linkView(0, 10, 'subject::chinese.links');
+        App::setLocale('zh');
+        return $this->linkView(1, 16, 'subject::chinese.links');
     }
 }
