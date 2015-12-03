@@ -10,7 +10,7 @@
         </div>
         <div class="list-group">
             <h3>2014文憑試口語</h3>
-            @for ($i =  10; $i <= min(16, count($links)); $i += 1)
+            @for ($i =  11; $i <= min(16, count($links)); $i += 1)
                 <a href="{{ url('/e/link/' . $i) }}">{{ $links[$i] }}</a>
             @endfor
         </div>
